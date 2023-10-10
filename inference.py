@@ -72,6 +72,7 @@ def main(args):
 
     #audio2ceoff
     batch = get_data(first_coeff_path, audio_path, device, ref_eyeblink_coeff_path, still=args.still)
+    # 音频转 coeff系数文件的地址
     coeff_path = audio_to_coeff.generate(batch, save_dir, pose_style, ref_pose_coeff_path)
 
     # 3dface render
@@ -82,7 +83,7 @@ def main(args):
     #coeff2video
     print('3DMM Extraction for source image,', coeff_path, crop_pic_path,
           first_coeff_path, audio_path, batch_size, input_yaw_list, input_pitch_list, 
-          input_roll_list, args.size, ':all done')
+          input_roll_list, 'still:', args.still,  args.size, ':all done')
     data = get_facerender_data(coeff_path, crop_pic_path, first_coeff_path, audio_path, 
                                 batch_size, input_yaw_list, input_pitch_list, input_roll_list,
                                 expression_scale=args.expression_scale, still_mode=args.still, preprocess=args.preprocess, size=args.size)
