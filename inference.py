@@ -80,6 +80,9 @@ def main(args):
         gen_composed_video(args, device, first_coeff_path, coeff_path, audio_path, os.path.join(save_dir, '3dface.mp4'))
     
     #coeff2video
+    print('3DMM Extraction for source image,', coeff_path, crop_pic_path,
+          first_coeff_path, audio_path, batch_size, input_yaw_list, input_pitch_list, 
+          input_roll_list, args.size, ':all done')
     data = get_facerender_data(coeff_path, crop_pic_path, first_coeff_path, audio_path, 
                                 batch_size, input_yaw_list, input_pitch_list, input_roll_list,
                                 expression_scale=args.expression_scale, still_mode=args.still, preprocess=args.preprocess, size=args.size)
