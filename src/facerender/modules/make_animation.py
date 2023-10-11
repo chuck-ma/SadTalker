@@ -125,7 +125,7 @@ def make_animation(source_image, source_semantics, target_semantics,
             kp_driving = keypoint_transformation(kp_canonical, he_driving)
                 
             kp_norm = kp_driving
-            print('kp_norm:shape=', kp_norm.shape)
+            print('kp_driving', kp_driving['value'].shape)
             out = generator(source_image, kp_source=kp_source, kp_driving=kp_norm)
             '''
             source_image_new = out['prediction'].squeeze(1)
